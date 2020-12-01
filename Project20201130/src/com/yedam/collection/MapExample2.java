@@ -19,27 +19,32 @@ public class MapExample2 {
 		int sumScore = 0;
 		int avgScore = 0;
 		int maxScore = 0;
-		String name = null;
 
-		
 		for (Student student : set) {
 			sumScore += map.get(student);
-			System.out.println("총 점수계: " +sumScore);
 		}
-		avgScore = sumScore / map.keySet().size();
+		System.out.println("총 점수계: " + sumScore);
+		avgScore = sumScore / map.size();
 		System.out.println("평균: " + avgScore);
 
-		//keyset을 이용하여 최고점수 구하기 
-		
-		
 		// 2.entrySet
 		int sum1 = 0;
 		int avg1 = 0;
+		int max = 0;
+		Student name = null;
 		Set<Entry<Student, Integer>> entrySet = map.entrySet();
-		for(Entry<Student, Integer> ent:entrySet) {
+		for (Entry<Student, Integer> ent : entrySet) {
 			sum1 += ent.getValue();
+			if (ent.getValue() > max) {
+				name = ent.getKey();
+				max = ent.getValue();
+			}
 		}
-		avg1 = sum1/map.entrySet().size();
+
+		avg1 = sum1 / map.size();
+		System.out.println("entrySet 총계: " + sum1);
 		System.out.println("entrySet 평균: " + avg1);
+		System.out.println("최고점수 학생: " + name);
+		System.out.println("최고점수: " + max);
 	}
 }
