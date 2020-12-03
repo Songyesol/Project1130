@@ -1,5 +1,5 @@
 package com.yedam.interfaces;
-//functional interface 
+//functional interface (함수적 인터페이스)
 // 인터페이스 안에 구현해야할 메소드가 1개만 존재해야한다
 interface Cal{ 
 	public void multi(int num);
